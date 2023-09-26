@@ -27,7 +27,7 @@ const ActionMovieList = (props: any) => {
     <div className="flex flex-nowrap overflow-x-scroll no-scrollbar text-md md:text-xl md:px-12 mt-4 mb-4 gap-4">
             {movies.map((card: any, index) => {
                 return(
-                    <div style={{width:'100%',height:'100%'}}>
+                    <div key={index} style={{width:'100%',height:'100%'}}>
                          <ActionMovieCard imageUrl={card.poster_path} />
                     </div>
                 )

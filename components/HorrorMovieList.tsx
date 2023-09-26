@@ -24,7 +24,7 @@ const HorrorMovieList = (props: any) => {
          
             {movies.map((card: any, index) => {
                 return(
-                    <div style={{width:'100%',height:'100%'}}>
+                    <div key={index} style={{width:'100%',height:'100%'}}>
                          <HorrorMovieCard imageUrl={card.poster_path} />
                     </div>
                 )

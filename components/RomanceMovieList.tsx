@@ -24,7 +24,7 @@ const RomanceMovieList = (props: any) => {
          
             {movies.map((card: any, index) => {
                 return(
-                    <div  >
+                    <div key={index}>
                          <RomanceMovieCard imageUrl={card.poster_path} />
                     </div>
                 )
