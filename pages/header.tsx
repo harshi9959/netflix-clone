@@ -6,7 +6,7 @@ import Billboard from '@/components/billboard';
 import MovieList from '@/components/MovieList';
 import useMovieList from '@/hooks/useMovieList';
 import useFavorites from '@/hooks/useFavorites';
-import ActionMovieList from '../../components/ActionMovieList';
+import ActionMovieList from '@/components/ActionMovieList';
 import HorrorMovieList from '@/components/HorrorMovieList';
 import ComedyMovieList from '@/components/ComedyMovieList';
 import RomanceMovieList from '@/components/RomanceMovieList';
