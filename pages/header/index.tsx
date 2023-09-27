@@ -49,7 +49,6 @@ export default function Home() {
       <div className=' pb-40 '>
         <p className=' text-white font-semibold text-2xl ml-12'>Action Movies  </p>
         < ActionMovieList title="Action Movies" data={movies} />
-      </div>
       {/* <div className="row">
         <h2> Action Movies </h2>
         <div className="row__posters flex" > 
@@ -63,15 +62,15 @@ export default function Home() {
                                          </div> */}
 
 
-      <div className='pb-40 '>
+      {/* <div className='pb-40 '> */}
       <p className='text-white font-semibold text-2xl ml-12'>Comedy Movies  </p>
         < ComedyMovieList title="Comedy Movies" data={movies} />
-      </div>
-      <div className='pb-40'>
+      {/* </div> */}
+      {/* <div className='pb-40'> */}
       <p className='text-white font-semibold text-2xl ml-12'>Horror Movies  </p>
         < HorrorMovieList title="Horror Movies" data={movies} />
-      </div>
-      <div className='pb-40'>
+      {/* </div> */}
+      {/* <div className='pb-40'> */}
       <p className='text-white font-semibold text-2xl ml-12'>Romance Movies  </p>
         < RomanceMovieList title="Romance Movies" data={movies} />
       </div>
