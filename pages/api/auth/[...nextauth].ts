@@ -57,7 +57,7 @@ export default NextAuth({
               }),
             ],
             pages: {
-              signIn: '/auth'
+              signIn: '/'
             },
             debug: process.env.NODE_ENV !== 'development',
             adapter: PrismaAdapter(prismadb),

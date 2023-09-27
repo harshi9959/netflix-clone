@@ -17,7 +17,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
   }
 
   const signOut = () => {
-    router.push('../auth')
+    router.push('../')
   }
 
   return (

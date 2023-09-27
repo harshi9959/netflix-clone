@@ -9,7 +9,7 @@ export async function getserversideprops(context: NextPageContext) {
 if (!session) {
     return {
       redirect: {
-        destination: '/auth',
+        destination: '/',
         permanent: false,
       }
     }
