@@ -37,12 +37,17 @@ export default NextAuth({
           throw new Error('Email and password required');
         }
 
-
+        
         const user = await prismadb.user.findUnique({
           where: {
             email: Credentials.email
           },
         });
+
+        const result = {
+          username: user.name,
+          password: user.hashedPassword
+        }
 
         if (!user || !user.hashedPassword) {
           throw new Error('Email does not exist');
