@@ -1,4 +1,4 @@
-import Auth from "./Auth/index"
+import Auth from "./auth";
 
 const Index = ()=>{
     return (
