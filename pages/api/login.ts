@@ -6,9 +6,9 @@ import { result } from 'lodash';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     
-//     if (req.method !== 'POST') {
-//       return res.status(405).end();
-    // }
+    if (req.method !== 'POST') {
+      return res.status(405).end();
+    }
     // console.log(req, "req")
     // const { email, password } = req.body;
 
