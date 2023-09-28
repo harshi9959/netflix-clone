@@ -1,11 +1,10 @@
 import bcrypt from 'bcrypt';
 import { NextApiRequest, NextApiResponse } from 'next';
 import prismadb from '@/lib/prismadb';
-import { result } from 'lodash';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (
-         req.method == "POST") {
+         req.method === "POST") {
             try {
     
                 // if (req.method !== 'POST') {
@@ -50,6 +49,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               } catch (error) {
                 return res.status(400).json({ error: `Something went wrong: ${error}` });
               }
+         }
+         else{
+            return res.status(405).end()
          }
        
   
