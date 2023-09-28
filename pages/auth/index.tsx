@@ -4,8 +4,8 @@ import Input from '@/components/input';
 import {getSession, signIn } from 'next-auth/react';
 import { NextPageContext } from 'next';
 
-import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
+// import { FcGoogle } from 'react-icons/fc';
+// import { FaGithub } from 'react-icons/fa';
 
 // export async function getServerSideProps(context: NextPageContext) {
 //   const session = await getSession(context);
@@ -106,7 +106,7 @@ const Auth = () => {
             <button onClick={variant == 'login' ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition ">
               {variant == 'login' ? 'Login' : 'Sign up'}
             </button>
-            <div className="flex flex-row items-center gap-4 mt-8 justify-center">
+            {/* <div className="flex flex-row items-center gap-4 mt-8 justify-center">
               <div onClick={() => signIn('google', { callbackUrl: './profiles' })}
                 className="
                 w-10
@@ -139,7 +139,7 @@ const Auth = () => {
               >
                 <FaGithub size={30} />
 
-              </div>
+              </div> */}
             </div>
             <p className="text-neutral-500 mt-12">
             {variant === 'login' ? 'First time using Netflix?' : 'Already have an account?'}
@@ -149,7 +149,6 @@ const Auth = () => {
             </p>
           </div>
         </div>
-      </div>
       </div>
   ); 
               }
