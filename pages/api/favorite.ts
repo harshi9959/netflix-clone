@@ -64,7 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(200).json(updatedUser);
     }
     
-    return res.status(405).json({place: "favourte.ts"});
+    return res.status(405).end();
   } catch (error) {
     console.log(error);
 
