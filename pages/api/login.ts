@@ -3,8 +3,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import prismadb from '@/lib/prismadb';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    console.log("req::", req.method)
     if (
-         req.method === "POST") {
+         req.method == "POST") {
             try {
     
                 // if (req.method !== 'POST') {
@@ -49,9 +50,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               } catch (error) {
                 return res.status(400).json({ error: `Something went wrong: ${error}` });
               }
-         }
-         else{
-            return res.status(405).end()
+         }else{
+            return res.status(405).json({error: "Invalid Method received", req_method: req.method});
          }
        
   
