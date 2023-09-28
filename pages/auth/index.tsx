@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import Input from '@/components/input';
 import {getSession, signIn } from 'next-auth/react';
 import { NextPageContext } from 'next';
-
+import { useRouter } from 'next/router';
 // import { FcGoogle } from 'react-icons/fc';
 // import { FaGithub } from 'react-icons/fa';
 
@@ -29,27 +29,49 @@ const Auth = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-
+  const router = useRouter();
   const [variant, setVariant] = useState('login');
 
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) => currentVariant == 'login' ? 'Register' : "login");
   }, []);
 
-  const login = useCallback(async () => {
-    try {
-      await signIn('credentials', {
-        email,
-        name,
-        password,
-        callbackUrl: '/profiles',
-      });
+  // const login = useCallback(async () => {
+  //   try {
+  //     await signIn('credentials', {
+  //       email,
+  //       name,
+  //       password,
+  //       callbackUrl: '/profiles',
+  //     });
      
-    } catch (error) {
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [email, name, password]);
+
+  const login = async ()=>{
+   
+    try{
+      const {data} = await axios.post('/api/login', {
+        
+        email,
+        password
+      });
+      console.log(data, "data")
+      if(data.user){
+        router.push('/profiles')
+      }
+      else{
+        console.log(data.error)
+      }
+      
+    }
+    catch (error) {
       console.log(error);
     }
-  }, [email, name, password]);
-
+  }
+    
   const register = useCallback(async () => {
     try {
       await axios.post('/api/register', {
