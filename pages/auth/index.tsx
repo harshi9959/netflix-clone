@@ -7,22 +7,22 @@ import { useRouter } from 'next/router';
 // import { FcGoogle } from 'react-icons/fc';
 // import { FaGithub } from 'react-icons/fa';
 
-// export async function getServerSideProps(context: NextPageContext) {
-//   const session = await getSession(context);
+export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession(context);
 
-//   if (session) {
-//     return {
-//       redirect: {
-//         destination: '/',
-//         permanent: true,
-//       }
-//     }
-//   }
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: true,
+      }
+    }
+  }
 
-//   return {
-//     props: {}
-//   }
-// }
+  return {
+    props: {}
+  }
+}
 
 const Auth = () => {
 
