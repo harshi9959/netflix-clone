@@ -45,11 +45,6 @@ export default NextAuth({
           },
         });
 
-        const result = {
-          username: user.name,
-          password: user.hashedPassword
-        }
-
         if (!user || !user.hashedPassword) {
           throw new Error('Email does not exist');
         }
