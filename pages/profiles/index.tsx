@@ -2,6 +2,29 @@ import { getSession } from "next-auth/react";
 import { NextPageContext } from "next";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { useRouter } from "next/router";
+import  serverAuth  from "@/lib/serverAuth";
+import { NextApiRequest, NextApiResponse } from "next";
+
+
+ async function handler(req: NextApiRequest) {
+    console.log("res",req)
+  
+    // if (req.method === 'GET') {
+    try {
+      const { currentUser } = await serverAuth(req);
+      console.log("currentUser",currentUser)
+    //   return res.status(200).json(currentUser);
+  
+      // return res.status(200).json({msg: "msg"})
+    }catch(error){
+        console.log("error",error)
+
+    //   return res.status(500).end()
+    }
+//   }
+  }
+
+
 
 export async function getserversideprops(context: NextPageContext) {
     const session = await getSession(context);
@@ -22,6 +45,8 @@ if (!session) {
 const Profiles = () => {
     const router = useRouter();
     const { data: user} = useCurrentUser();
+    console.log("user",user)
+    handler(user)
     return (
     <div className="flex items-center h-full justify-center">
         <div className="flex flex-col">
