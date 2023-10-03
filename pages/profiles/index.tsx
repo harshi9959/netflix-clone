@@ -2,6 +2,8 @@ import { getSession } from "next-auth/react";
 import { NextPageContext } from "next";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 export async function getserversideprops(context: NextPageContext) {
@@ -22,8 +24,18 @@ if (!session) {
 }
 const Profiles = () => {
     const router = useRouter();
-    const { data: user} = useCurrentUser();
-    console.log("user",user)
+    // const { data: user} = useCurrentUser();
+    // console.log("user",user)
+    const [data, setData] = useState<any>({})
+    useEffect(()=>{
+        (async()=>{
+            const res = await axios.get('http://localhost:3000/api/current')
+            const {data} = await res
+            setData(data)
+
+        })()
+    },[])
+    console.log(data)
 
     return (
     <div className="flex items-center h-full justify-center">
@@ -59,7 +71,9 @@ const Profiles = () => {
                         group:hover:text-white
                         "
                     >
-                    {user?.name}
+                    {
+                        data && data.name ? data.name : 'user'
+                    }
                     </div>
 
                     </div>
