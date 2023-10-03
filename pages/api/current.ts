@@ -22,6 +22,7 @@ export default async function handler(req: NextApiRequest, res:NextApiResponse) 
   if (req.method === 'GET') {
   try {
     const { currentUser } = await serverAuth(req);
+    console.log('--',currentUser)
     return res.status(200).json(currentUser);
 
     // return res.status(200).json({msg: "msg"})
